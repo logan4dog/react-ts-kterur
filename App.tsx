@@ -1,28 +1,15 @@
 import * as React from 'react';
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react';
+import { Child } from "./Child";
 import './style.css';
 
-function Child(){
-  console.log("Rendering child ...");
 
-  useEffect(() => {
-    console.log("Running child useEffect ...");
-  },[]);
-
-  useLayoutEffect(() => {
-    console.log("Running child useLayoutEffect");
-  })
-
-  
-
-  return <div>Child</div>
-}
 
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
 
+    this.state = {value: ''};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -38,6 +25,7 @@ class NameForm extends React.Component {
 
   render() {
     return (
+      <div>
       <form onSubmit={this.handleSubmit}>
         <label>
           Name:
@@ -45,6 +33,8 @@ class NameForm extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      <h3>{ this.state.value }</h3>
+      </div>
     );
   }
 }
@@ -65,7 +55,7 @@ export default function App() {
   return (
     <div className="App">
       {console.log("Before child.")}
-      <Child></Child>
+      <Child />
       <NameForm />
       {console.log("After child.")}
     </div>
