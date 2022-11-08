@@ -33,7 +33,7 @@ class NameForm extends React.Component {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <h3>{ this.state.value }</h3>
+      <Child msg={ this.state.value }/>
       </div>
     );
   }
@@ -55,7 +55,6 @@ export default function App() {
   return (
     <div className="App">
       {console.log("Before child.")}
-      <Child />
       <NameForm />
       {console.log("After child.")}
     </div>

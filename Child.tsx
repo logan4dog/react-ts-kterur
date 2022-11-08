@@ -1,10 +1,10 @@
 import * as React from "react";
 
-export const Child = () => {
+export const Child = (props) => {
 
   React.useEffect(() => {
     //console.log("Running child useEffect ...");
   });
 
-  return (<div>Child<br/><br/></div>);
+  return (<div>Child<br/><br/>{ props.msg}</div>);
 };
